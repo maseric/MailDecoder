@@ -1,0 +1,27 @@
+[info] Module Name: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\MailDecoder.exe
+[info] Module INI: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\MailDecoder.ini
+[info] Module Dir: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\
+[info] INI Dir: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\
+[info] Found VM: C:\Program Files\Java\jre1.6.0_07\bin\client\jvm.dll
+[info] Expanding Classpath: *.jar
+[info] Expanding Classpath: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin/activation.jar
+[info] Expanding Classpath: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin/backport-util-concurrent-3.1.jar
+[info] Expanding Classpath: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin/commons-codec-1.5.jar
+[info] Expanding Classpath: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin/commons-io-2.1.jar
+[info] Expanding Classpath: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin/commons-lang-2.6.jar
+[info] Expanding Classpath: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin/commons-logging-1.1.1.jar
+[info] Expanding Classpath: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin/ical4j-1.0.3.jar
+[info] Expanding Classpath: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin/jta-1.1.jar
+[info] Expanding Classpath: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin/junit-4.10.jar
+[info] Expanding Classpath: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin/mail.jar
+[info] Expanding Classpath: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin/MailDecoder.jar
+[info] Expanding Classpath: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin/WinRun4J.jar
+[info] Expanding Classpath: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin/WinRun4JTest.jar
+[info] Generated Classpath: C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\activation.jar;C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\backport-util-concurrent-3.1.jar;C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\commons-codec-1.5.jar;C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\commons-io-2.1.jar;C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\commons-lang-2.6.jar;C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\commons-logging-1.1.1.jar;C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\ical4j-1.0.3.jar;C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\jta-1.1.jar;C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\junit-4.10.jar;C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\mail.jar;C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\MailDecoder.jar;C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\WinRun4J.jar;C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\WinRun4JTest.jar
+[info] VM Args:
+[info] vmarg.0=-Djava.class.path=C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\activation.jar;C:\Documents and Settings\Administrateur\workspace\MailDecoder\winrun4j\bin\backport-util-concurrent-3.1.jar;C:\Documents and Settings\Administrateur\
+[info] Main Class: MailDecoder
+[info] Registering natives for Native class
+[warn] Could not find Native class
+java.lang.IllegalAccessError: tried to access class MailDecoder$1 from class MailDecoder
+	at MailDecoder.main(MailDecoder.java:217)
