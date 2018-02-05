@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     28 avr. 2011 09:33:09                                                        
+
+     Arc    
+     Réarchiveur
+                   
+     Administrateur                                                                
+     ====================================================================== -->
+<project name="MailDecoder" default="compile" basedir="." xmlns:comp="antlib:org.apache.ant.compress">
+	<description>
+            Réarchiveur
+    </description>
+	<property name="src" location="src" />
+	<property name="build" value="bin" />
+	<property name="javac.debug" value="on" />
+	<property name="dist" location="dist" />
+	<property name="libDir" location="lib" />
+	<property name="imagesDir" location="images" />
+	<property name="exe" location="exe" />
+	<property name="emptyPropCalFile" location="ical4j.properties" />
+	<property name="jarname" value="MailDecoder" />
+	<property name="winRun4jDir" value="winrun4j/bin" />
+
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: init                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="init">
+		<tstamp>
+			<format property="buildTime" pattern="yyyyMMddhhmmss" />
+		</tstamp>
+	</target>
+	<!-- ================================= 
+          target: compile
+          default target              
+         ================================= -->
+	<target name="compile" depends="init">
+		<echo>debut compile</echo>
+		<javac srcdir="${src}" destdir="${build}" debug="${javac.debug}" failonerror="true" />
+		<echo>fin compile</echo>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: jarThis                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="jarThis" depends="compile">
+		<echo>Deplacement des ressources pour le jar</echo>
+		<copy todir="${build}/images">
+			<fileset dir="${imagesDir}">
+				<filename casesensitive="no" name="*.gif" />
+			</fileset>
+		</copy>
+		<copy todir="${build}" file="${emptyPropCalFile}" />
+
+		<echo>debut creation jar</echo>
+		<!-- <jar index="yes" jarfile="${dist}/${jarname}-${buildTime}.jar" basedir="${build}"> -->
+		<jar index="yes" jarfile="${dist}/${jarname}.jar" update="yes">
+			<fileset dir="${build}"/>
+			<restrict>
+				<name regex=".*\.class|tz\.alias" />
+				<archives>
+					<zips>
+						<fileset dir="${libDir}" includes="**/*.jar" />
+					</zips>
+				</archives>
+			</restrict>
+
+			<metainf dir="${libDir}" excludes="**/*.jar">
+
+			</metainf>
+
+			<manifest>
+				<attribute name="Main-Class" value="gfi.messageriedemerde.MailDecoder" />
+			</manifest>
+		</jar>
+		<!-- <echo>fin création jar ${jarname}-${buildTime}.jar</echo> -->
+		<echo>fin creation jar ${jarname}.jar</echo>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: clean                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="clean">
+		<delete includeemptydirs="true">
+			<fileset dir="${build}" includes="**/*" />
+		</delete>
+		<delete>
+			<fileset dir="${dist}">
+				<filename casesensitive="no" name="*.jar" />
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="dist" depends="jarThis">
+		<copy file="${dist}/${jarname}.jar" todir="C:\Documents and Settings\Administrateur\Bureau" overwrite="yes">
+		</copy>
+		<copy file="${dist}/${jarname}.jar" todir="\\Bdxxp-348\TMA_FE\90-Travail\EMAS\MailDecoder" overwrite="yes">
+		</copy>
+	</target>
+
+	<target name="create Exe" depends="jarThis">
+		<copy file="${winRun4jDir}/WinRun4J.exe" tofile="${winRun4jDir}/${jarname}.exe" overwrite="yes">
+		</copy>
+		<copy file="${dist}/${jarname}.jar" tofile="${winRun4jDir}/${jarname}.jar" overwrite="yes">
+		</copy>
+		<copy todir="${winRun4jDir}">
+			<fileset dir="${libDir}">
+				<filename name="*.jar" />
+			</fileset>
+		</copy>
+		<exec command="${winRun4jDir}/RCEDIT.exe /I ${winRun4jDir}/${jarname}.exe ${winRun4jDir}/${jarname}.ico">
+		</exec>
+		<exec command="${winRun4jDir}/RCEDIT.exe /N ${winRun4jDir}/${jarname}.exe ${winRun4jDir}/${jarname}.ini">
+		</exec>
+
+		<exec command="${winRun4jDir}/RCEDIT.exe /J ${winRun4jDir}/${jarname}.exe ${winRun4jDir}/${jarname}.jar">
+		</exec>
+
+		<exec command="${winRun4jDir}/RCEDIT.exe /L ${winRun4jDir}/${jarname}.exe">
+		</exec>
+		<copy file="${winRun4jDir}/${jarname}.exe" tofile="${exe}/${jarname}.exe" overwrite="yes">
+		</copy>
+	</target>
+
+	<target name="create Exe 2 FAKE" depends="jarThis">
+		<copy file="${winRun4jDir}/WinRun4J.exe" tofile="${winRun4jDir}/${jarname}.exe" overwrite="yes">
+		</copy>
+		<copy file="${dist}/${jarname}.jar" tofile="${winRun4jDir}/${jarname}.jar" overwrite="yes">
+		</copy>
+		<copy todir="${winRun4jDir}">
+			<fileset dir="${libDir}">
+				<filename name="*.jar" />
+			</fileset>
+		</copy>
+		<exec command="${winRun4jDir}/RCEDIT.exe /I ${winRun4jDir}/${jarname}.exe ${winRun4jDir}/${jarname}.ico">
+		</exec>
+		<exec command="${winRun4jDir}/RCEDIT.exe /N ${winRun4jDir}/${jarname}.exe ${winRun4jDir}/${jarname}.ini">
+		</exec>
+
+		<exec command="${winRun4jDir}/RCEDIT.exe /J ${winRun4jDir}/${jarname}.exe ${winRun4jDir}/${jarname}.jar">
+		</exec>
+
+		<exec command="${winRun4jDir}/RCEDIT.exe /J ${winRun4jDir}/${jarname}.exe ${winRun4jDir}/activation.jar">
+		</exec>
+
+		<exec command="${winRun4jDir}/RCEDIT.exe /J ${winRun4jDir}/${jarname}.exe ${winRun4jDir}/backport-util-concurrent-3.1.jar">
+		</exec>
+		<exec command="${winRun4jDir}/RCEDIT.exe /J ${winRun4jDir}/${jarname}.exe ${winRun4jDir}/commons-codec-1.5.jar">
+		</exec>
+		<exec command="${winRun4jDir}/RCEDIT.exe /J ${winRun4jDir}/${jarname}.exe ${winRun4jDir}/commons-io-2.1.jar">
+		</exec>
+		<exec command="${winRun4jDir}/RCEDIT.exe /J ${winRun4jDir}/${jarname}.exe ${winRun4jDir}/commons-lang-2.6.jar">
+		</exec>
+		<exec command="${winRun4jDir}/RCEDIT.exe /J ${winRun4jDir}/${jarname}.exe ${winRun4jDir}/commons-logging-1.1.1.jar">
+		</exec>
+		<exec command="${winRun4jDir}/RCEDIT.exe /J ${winRun4jDir}/${jarname}.exe ${winRun4jDir}/ical4j-1.0.3.jar">
+		</exec>
+		<exec command="${winRun4jDir}/RCEDIT.exe /J ${winRun4jDir}/${jarname}.exe ${winRun4jDir}/jta-1.1.jar">
+		</exec>
+		<exec command="${winRun4jDir}/RCEDIT.exe /J ${winRun4jDir}/${jarname}.exe ${winRun4jDir}/mail.jar">
+		</exec>
+		<exec command="${winRun4jDir}/RCEDIT.exe /L ${winRun4jDir}/${jarname}.exe">
+		</exec>
+		<copy file="${winRun4jDir}/${jarname}.exe" tofile="${exe}/${jarname}.exe" overwrite="yes">
+		</copy>
+	</target>
+
+</project>

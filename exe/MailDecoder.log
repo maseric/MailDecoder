@@ -1,0 +1,40 @@
+[info] Module Name: C:\Documents and Settings\Administrateur\workspace\MailDecoder\exe\MailDecoder.exe
+[info] Module INI: C:\Documents and Settings\Administrateur\workspace\MailDecoder\exe\MailDecoder.ini
+[info] Module Dir: C:\Documents and Settings\Administrateur\workspace\MailDecoder\exe\
+[info] INI Dir: C:\Documents and Settings\Administrateur\workspace\MailDecoder\exe\
+[info] Found VM: C:\Program Files\Java\jre1.6.0_07\bin\client\jvm.dll
+[info] Generated Classpath: 
+[info] VM Args:
+[info] vmarg.0=file.encoding=UTF-8
+[info] vmarg.1=-Djava.class.path=
+[info] Main Class: gfi/messageriedemerde/MailDecoder
+[info] Registering natives for Native class
+[warn] Could not find Native class
+Couldn't find file: /images/cal.gif
+Couldn't find file: /images/file.gif
+com.sun.mail.handlers.multipart_mixed
+message/rfc822
+null
+multipart/*
+null
+image/jpeg
+null
+text/plain
+null
+image/gif
+null
+text/xml
+null
+text/html
+null
+text/*
+null
+----------------
+Content-Type: multipart/alternative;
+	boundary="_000_F92856B16DDFFB4FAB570520E1BFCCB8FE25FB8D89PUEXCB1Dnante_"
+Class: class javax.mail.internet.MimeMessage
+Content: class javax.mail.util.SharedByteArrayInputStream
+sun.misc.Launcher$AppClassLoader
+javax.mail.internet.MimeBodyPart$MimePartDataHandler
+
+[info] Application exited (0).
