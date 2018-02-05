@@ -1,6 +1,8 @@
 # MailDecoder
 Mail decoder.
 
+![MailDecoder interface](MailDecoder.png)
+
 I used to wrok at a company where the meeting requests emails got processed as spam by our mail server.
 They were delivered as encrypted MIME stuff and we weren't able to reply or even know what it was about.
 
